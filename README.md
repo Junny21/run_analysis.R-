@@ -18,10 +18,8 @@ files
 
 activity_test  <- read.table(file.path(path, "test" , "Y_test.txt" ),header = F)
 activity_train <- read.table(file.path(path, "train", "Y_train.txt"),header = F)
-
 subject_train <- read.table(file.path(path, "train", "subject_train.txt"),header = F)
 subject_test  <- read.table(file.path(path, "test" , "subject_test.txt"),header = F)
-
 features_test  <- read.table(file.path(path, "test" , "X_test.txt" ),header = F)
 features_train <- read.table(file.path(path, "train", "X_train.txt"),header = F)
 

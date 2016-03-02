@@ -44,7 +44,6 @@ install.packages("dplyr")
 library(dplyr)
 
 ###-The mean and standard deviation for each measurement.
-MEAN_STDev<-features_names$V2[grep("mean\\('')|std\\('')", features_names$V2)]
 Name_MEAN_STDev<-c(as.character(MEAN_STDev), "subject", "activity" )
 Data1<-subset(Data,select=Name_MEAN_STDev)
 head(Data1)

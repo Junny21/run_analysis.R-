@@ -58,6 +58,12 @@ head(Data2)
 activity_labels <- read.table(file.path(path, "activity_labels.txt"),header = F)
 Data2$activity<- factor(Data2$activity, labels = activity_labels[,2])
 
+names(Data2)<-sub("^t", "Time", names(Data2)
+names(Data2)<-sub("^f", "Frequency", names(Data2)
+names(Data2)<-sub("Acc", "Acceleration", names(Data2)
+names(Data2)<-sub("Mag", "Magnitude", names(Data2)
+names(Data2)<-sub("Gyro", "Gyroscope", names(Data2)
+
 ### Independent tidy data set with the average of each variable for each activity and each subject.
 Data3<- (Data2%>% group_by(subject,activity) %>% summarize_each(funs( mean)))
 

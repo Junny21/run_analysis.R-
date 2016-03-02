@@ -49,7 +49,7 @@ library(dplyr)
 MEAN_STDev<-features_names$V2[grep("mean\\('')|std\\('')", features_names$V2)]
 Name_MEAN_STDev<-c(as.character(MEAN_STDev), "subject", "activity" )
 Data1<-subset(Data,select=Name_MEAN_STDev)
-headI(Data1)
+head(Data1)
 Data <- Data[, !duplicated(colnames(Data))]
 Data2<- select(Data,contains("subject"), contains("Activity"), contains("mean"), contains("std"))
 head(Data2)
@@ -58,11 +58,6 @@ head(Data2)
 activity_labels <- read.table(file.path(path, "activity_labels.txt"),header = F)
 Data2$activity<- factor(Data2$activity, labels = activity_labels[,2])
 
-names(Data2)<-sub("^t", "Time", names(Data2)
-names(Data2)<-sub("^f", "Frequency", names(Data2)
-names(Data2)<-sub("Acc", "Acceleration", names(Data2)
-names(Data2)<-sub("Mag", "Magnitude", names(Data2)
-names(Data2)<-sub("Gyro", "Gyroscope", names(Data2)
 
 ### Independent tidy data set with the average of each variable for each activity and each subject.
 Data3<- (Data2%>% group_by(subject,activity) %>% summarize_each(funs( mean)))
